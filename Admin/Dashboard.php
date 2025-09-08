@@ -5,8 +5,8 @@ include('./header.php');
 ?>
 
 This is dashboard
-      
-            <?php
+
+<?php
 
 include('./footer.php');
 

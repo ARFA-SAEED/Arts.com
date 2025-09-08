@@ -63,13 +63,13 @@ if (isset($_POST['register'])) {
     if ($exec_result) {
         $_SESSION['alert_signup'] = [
             'type' => 'success',
-            'message' => '🎉 Congratulations! You have successfully signed up to ARTS!',
-            'redirect' => true // 👈 Add this flag to control delayed redirect
+            'message' => '🎉 Congratulations! You have successfully signed up to ARTS! ',
+            'redirect' => '../Customer/index.php', // destination
+            'delay' => 3000 // in milliseconds
         ];
-        $insert_stmt->close();
-        header("Location: Login_Signup.php"); // ✅ Go back to Login_Signup first
-        exit();
 
+        header("Location: Login_Signup.php");
+        exit();
     } else {
         $_SESSION['alert_signup'] = [
             'type' => 'error',
