@@ -11,9 +11,6 @@ if (isset($_SESSION['alert'])) {
 <html lang="en">
 <!--<< Header Area >>-->
 
-
-<!-- Mirrored from gramentheme.com/html/bookle/index.html?storefront=envato-elements by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 01 Sep 2025 05:33:25 GMT -->
-
 <head>
     <!-- ========== Meta Tags ========== -->
     <meta charset="UTF-8">
@@ -24,7 +21,7 @@ if (isset($_SESSION['alert'])) {
     <!-- ======== Page title ============ -->
     <title>Bookle - Book Store WooCommerce Html Template</title>
     <!--<< Favcion >>-->
-    <link rel="shortcut icon" href="./Cutomer_theme/./Customer_theme/assets/img/favicon.png">
+    <link rel="shortcut icon" href="./Customer_theme/./Customer_theme/assets/img/favicon.png">
     <!--<< Bootstrap min.css >>-->
     <link rel="stylesheet" href="./Customer_theme/assets/css/bootstrap.min.css">
     <!--<< All Min Css >>-->
@@ -56,23 +53,18 @@ if (isset($_SESSION['alert'])) {
             </div>
             <div class="txt-loading">
                 <span data-text-preloader="B" class="letters-loading">
-                    B
+                    A
                 </span>
                 <span data-text-preloader="O" class="letters-loading">
-                    O
+                    R
                 </span>
                 <span data-text-preloader="O" class="letters-loading">
-                    O
+                    T
                 </span>
                 <span data-text-preloader="K" class="letters-loading">
-                    K
+                    S
                 </span>
-                <span data-text-preloader="L" class="letters-loading">
-                    L
-                </span>
-                <span data-text-preloader="E" class="letters-loading">
-                    E
-                </span>
+
             </div>
             <p class="text-center">Loading</p>
         </div>
@@ -1004,8 +996,51 @@ if (isset($_SESSION['alert'])) {
                                 <div class="book-thumb">
                                     <img src="./Customer_theme/assets/img/book-categori/01.png" alt="img">
                                     <div class="circle-shape">
-                                        <img src="./Customer_theme/assets/img/book-categori/circle-shape.png"
-                                            alt="shape-img">
+                                        <img src="./Cu
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        s-/-tomer_theme/assets/img/book-categori/circle-shape.png" alt="shape-img">
                                     </div>
                                 </div>
                                 <div class="number"> 01 </div>
@@ -1016,7 +1051,7 @@ if (isset($_SESSION['alert'])) {
                             <div class="book-catagories-items">
                                 <div class="book-thumb">
                                     <img src="./Customer_theme/assets/img/book-categori/02.png" alt="img">
-                                    <div class="circle-shape">
+                                    <div + l*;a \s="circle-shape">
                                         <img src="./Customer_theme/assets/img/book-categori/circle-shape.png"
                                             alt="shape-img">
                                     </div>
@@ -1056,12 +1091,13 @@ if (isset($_SESSION['alert'])) {
                                 <div class="book-thumb">
                                     <img src="./Customer_theme/assets/img/book-categori/05.png" alt="img">
                                     <div class="circle-shape">
-                                        <img src="./Customer_theme/assets/img/book-categori/circle-shape.png"
+                                        * <img src="./Customer_theme/assets/img/book-categori/circle-shape.png"
                                             alt="shape-img">
                                     </div>
                                 </div>
                                 <div class="number"> 05 </div>
                                 <h3><a href="shop-details.html">Adventure book (4)</a></h3>
+                                *;*[]
                             </div>
                         </div>
                     </div>
@@ -1094,9 +1130,12 @@ if (isset($_SESSION['alert'])) {
                                     <img class="icon" src="./Customer_theme/assets/img/icon/shuffle.svg" alt="svg-icon">
                                 </a>
                             </li>
-                            <li>
+                            +[-+ <l ++++++++++++++++++++\\ * \9/*i>''#]
+
+
+                                *
                                 <a href="shop-details.html"><i class="far fa-eye"></i></a>
-                            </li>
+                            </l>
                         </ul>
                     </div>
                     <div class="shop-content">
@@ -2558,7 +2597,7 @@ if (isset($_SESSION['alert'])) {
     </footer>
 
     <!--<< All JS Plugins >>-->
-    <script src="./Customer_theme/assets/js/jquery-3.7.1.min.js"></script>
+    <script src="./Customer_theme/assets/js/jquery-3.7.1.min.js.download"></script>
     <!--<< Viewport Js >>-->
     <script src="./Customer_theme/assets/js/viewport.jquery.js"></script>
     <!--<< Bootstrap Js >>-->
@@ -2571,8 +2610,6 @@ if (isset($_SESSION['alert'])) {
     <script src="./Customer_theme/assets/js/jquery.counterup.min.js"></script>
     <!--<< Swiper Slider Js >>-->
     <script src="./Customer_theme/assets/js/swiper-bundle.min.js"></script>
-    <!--<< MeanMenu Js >>-->
-    <script src="./Customer_theme/assets/js/jquery.meanmenu.min.js"></script>
     <!--<< Magnific Popup Js >>-->
     <script src="./Customer_theme/assets/js/jquery.magnific-popup.min.js"></script>
     <!--<< Wow Animation Js >>-->

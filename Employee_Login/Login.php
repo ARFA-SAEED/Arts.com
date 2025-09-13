@@ -93,16 +93,22 @@
             padding: 40px;
             text-align: center;
             transition: 0.6s ease-in-out;
+            position: relative;
+            overflow: hidden;
         }
 
         .left h1 {
             font-size: 34px;
             margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .left p {
             font-size: 15px;
             color: #fff9;
+            position: relative;
+            z-index: 1;
         }
 
         .switch-btn {
@@ -175,7 +181,6 @@
             top: 50%;
             transform: translateY(-50%);
             color: #ff416c !important;
-            /* FORCE the pink color */
             font-size: 16px;
             margin-top: 10px;
         }
@@ -192,16 +197,6 @@
             border-color: #ff4b2b;
             outline: none;
             box-shadow: 0 0 0 2px rgba(255, 75, 43, 0.3);
-        }
-
-        /* Icon inside input */
-        .form-group i {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #9ca3af;
-            font-size: 16px;
         }
 
         /* Forgot link */
@@ -258,6 +253,65 @@
             pointer-events: all;
         }
 
+        /* Floating shapes */
+        .floating-shape {
+            position: absolute;
+            opacity: 0.4;
+            z-index: 0;
+            animation: float 10s infinite ease-in-out alternate;
+        }
+
+        .floating-shape.circle {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            top: 20%;
+            left: 15%;
+        }
+
+        .floating-shape.small-circle {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            top: 70%;
+            left: 60%;
+        }
+
+        .floating-shape.square {
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            top: 40%;
+            left: 40%;
+            transform: rotate(20deg);
+        }
+
+        .floating-shape.triangle {
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 50px solid rgba(255, 255, 255, 0.15);
+            top: 60%;
+            left: 25%;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(15deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .container {
@@ -278,7 +332,6 @@
             }
         }
 
-        /* Smaller devices */
         @media (max-width: 480px) {
             .left h1 {
                 font-size: 28px;
@@ -311,7 +364,12 @@
                 <h1>Empowering<br><strong>Creative Employees</strong></h1>
                 <p class="tagline">“Because you bring the art to Arts.”</p>
             </div>
-            <button class="switch-btn" id="switchBtn">Go to Signup</button>
+
+            <!-- Floating shapes -->
+            <div class="floating-shape circle"></div>
+            <div class="floating-shape triangle"></div>
+            <div class="floating-shape square"></div>
+            <div class="floating-shape small-circle"></div>
         </div>
 
         <div class="right">
@@ -335,29 +393,6 @@
                     <button type="submit" class="btn">Sign In</button>
                 </form>
             </div>
-
-            <!-- Signup -->
-            <div class="form-box signup-box">
-                <h2>Employee Signup</h2>
-                <form method="POST" action="Register_query.php">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" name="name" required placeholder="Enter your full name">
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" name="email" required placeholder="Enter your email">
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" name="password" required minlength="6" placeholder="Create a password">
-                        <i class="fa-solid fa-key"></i>
-                    </div>
-                    <button type="submit" class="btn" name="signup_submit">Sign Up</button>
-                </form>
-            </div>
         </div>
     </div>
 
@@ -365,11 +400,13 @@
         const container = document.getElementById("authContainer");
         const switchBtn = document.getElementById("switchBtn");
         let isSignup = false;
-        switchBtn.addEventListener("click", () => {
-            container.classList.toggle("active");
-            isSignup = !isSignup;
-            switchBtn.textContent = isSignup ? "Go to Login" : "Go to Signup";
-        });
+        if (switchBtn) {
+            switchBtn.addEventListener("click", () => {
+                container.classList.toggle("active");
+                isSignup = !isSignup;
+                switchBtn.textContent = isSignup ? "Go to Login" : "Go to Signup";
+            });
+        }
     </script>
 </body>
 

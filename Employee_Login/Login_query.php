@@ -29,17 +29,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['alert_login'] = [
                 'type' => 'error',
                 'message' => 'Incorrect password!',
-                'redirect' => 'Login_Register.php'
+                'redirect' => 'Login.php'
             ];
         }
     } else {
         $_SESSION['alert_login'] = [
             'type' => 'error',
             'message' => 'Email not registered!',
-            'redirect' => 'Login_Register.php'
+            'redirect' => 'Login.php'
         ];
     }
-    header("Location: Login_Register.php");
+    header("Location: Login.php");
     exit;
 }
 ?>

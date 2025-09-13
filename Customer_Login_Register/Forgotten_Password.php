@@ -1,3 +1,47 @@
+<?php
+session_start();
+include('Connection.php'); // your database connection
+
+$message = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = trim($_POST['email']);
+
+    // Check if email exists
+    $stmt = $conn->prepare("SELECT id FROM customers WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+        $user_id = $user['id'];
+
+        // Generate token
+        $token = bin2hex(random_bytes(50));
+        $expiry = date("Y-m-d H:i:s", strtotime('+1 hour'));
+
+        // Insert token into database
+        $stmt2 = $conn->prepare("INSERT INTO password_resets (user_id, token, expiry) VALUES (?, ?, ?)");
+        $stmt2->bind_param("iss", $user_id, $token, $expiry);
+        $stmt2->execute();
+
+        // Send email
+        $reset_link = "http://yourdomain.com/reset_password.php?token=$token";
+        $subject = "Password Reset Request";
+        $body = "Hi,\n\nClick the link below to reset your password:\n$reset_link\n\nThis link expires in 1 hour.";
+        $headers = "From: noreply@yourdomain.com";
+
+        if (mail($email, $subject, $body, $headers)) {
+            $message = "Reset link has been sent to your email.";
+        } else {
+            $message = "Failed to send email. Try again later.";
+        }
+    } else {
+        $message = "Email not found in our records.";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +51,7 @@
     <title>Customer Forgot Password</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
+        /* --- Your CSS from the design --- */
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
 
         * {
@@ -43,7 +88,6 @@
             }
         }
 
-        /* Wrapper */
         .wrapper {
             display: flex;
             flex-direction: row;
@@ -58,7 +102,6 @@
             position: relative;
         }
 
-        /* Illustration */
         .illustration {
             flex: 1;
             background: linear-gradient(135deg, #FF416C, #FF4B2B);
@@ -89,7 +132,6 @@
             max-width: 260px;
         }
 
-        /* Form */
         .form-section {
             flex: 1;
             padding: 50px 40px;
@@ -172,7 +214,6 @@
             text-decoration: underline;
         }
 
-        /* Animations */
         @keyframes fadeUp {
             from {
                 transform: translateY(50px);
@@ -199,8 +240,7 @@
             }
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
+        @media(max-width:768px) {
             .wrapper {
                 flex-direction: column;
             }
@@ -214,7 +254,7 @@
             }
         }
 
-        @media (max-width: 480px) {
+        @media(max-width:480px) {
             .illustration i {
                 font-size: 55px;
             }
@@ -232,30 +272,37 @@
                 font-size: 14px;
             }
         }
+
+        .message {
+            color: #FF416C;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
     <div class="wrapper">
-        <!-- Left Illustration -->
         <div class="illustration">
             <i class="fa fa-user-circle"></i>
             <h2>Forgot Password?</h2>
             <p>Don’t worry, customers! We’ll help you reset your password quickly.</p>
         </div>
 
-        <!-- Right Form -->
         <div class="form-section">
             <h1>Reset Your Password</h1>
             <p>Enter your customer email address and we’ll send you a reset link.</p>
+            <?php if ($message)
+                echo "<div class='message'>$message</div>"; ?>
             <form id="forgotForm" method="POST">
                 <div class="input-group">
                     <input type="email" name="email" placeholder="Enter your email" required />
-                    <i class="fa fa-envelope"></i>
+                    <i class="fa fa-envelope" style="color: #ff416c !important;"></i>
                 </div>
                 <button type="submit">Send Reset Link</button>
             </form>
-            <a href="Customer_Login.php" class="back-link"><i class="fa fa-arrow-left"></i> Back to Customer Login</a>
+            <a href="Login_Signup.php" class="back-link"><i class="fa fa-arrow-left"></i> Back to Customer Login</a>
         </div>
     </div>
 </body>

@@ -11,18 +11,18 @@ if (isset($_SESSION['alert_sign'])) {
     unset($_SESSION['alert_signup']);
 }
 if (isset($_SESSION['alert_login'])): ?>
-    <div class="custom-alert <?= $_SESSION['alert_login']['type'] ?>">
-        <?= $_SESSION['alert_login']['message'] ?>
-    </div>
+            <div class="custom-alert <?= $_SESSION['alert_login']['type'] ?>">
+                <?= $_SESSION['alert_login']['message'] ?>
+            </div>
 
-    <script>
-        // Show alert for 3s, then redirect
-        setTimeout(() => {
-            window.location.href = "../Customer/index.php";
-        }, 3000);
-    </script>
+            <script>
+                // Show alert for 3s, then redirect
+                setTimeout(() => {
+                    window.location.href = "../Customer/index.php";
+                }, 3000);
+            </script>
 
-    <?php unset($_SESSION['alert_login']); ?>
+            <?php unset($_SESSION['alert_login']); ?>
 <?php endif;
 
 ?>
@@ -547,10 +547,10 @@ foreach ($alerts as $a) {
     }
     ?>
     <?php if (isset($_SESSION['alert'])): ?>
-        <div class="custom-alert <?= $_SESSION['alert']['type'] ?>">
-            <?= $_SESSION['alert']['message'] ?>
-        </div>
-        <?php unset($_SESSION['alert']); ?>
+                <div class="custom-alert <?= $_SESSION['alert']['type'] ?>">
+                    <?= $_SESSION['alert']['message'] ?>
+                </div>
+                <?php unset($_SESSION['alert']); ?>
     <?php endif; ?>
 
     <div class="container" id="container" style=" 
@@ -671,9 +671,9 @@ foreach ($alerts as $a) {
 
         // ✅ Redirect only on successful login
         <?php if (isset($_SESSION['alert_login']['redirect']) && $_SESSION['alert_login']['redirect']): ?>
-            setTimeout(() => {
-                window.location.href = "../Customer/index.php";
-            }, 3000);
+                    setTimeout(() => {
+                        window.location.href = "../Customer/index.php";
+                    }, 3000);
         <?php endif; ?>
 
 

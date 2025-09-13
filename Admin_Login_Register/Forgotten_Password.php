@@ -278,7 +278,7 @@
             <form id="forgotForm" method="POST">
                 <div class="input-group">
                     <input type="email" name="email" placeholder="Enter admin email" required />
-                    <i class="fa fa-envelope"></i>
+                    <i class="fa fa-envelope" style="    color: #ff416c !important;"></i>
                 </div>
                 <button type="submit">Send Reset Link</button>
             </form>
